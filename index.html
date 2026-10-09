@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>HotPatchCaps | IEEE TNSM 2026</title>
+<meta property="og:title" content="HotPatchCaps: Runtime Hot Patching for Zero-Day API Attack Detection (IEEE TNSM 2026)"/>
+<meta property="og:image" content="https://realtongli.github.io/HotPatchCaps-A-Capsule-Network-With-Runtime-Hot-Patching-for-Zero-Day-API-Attack-Detections/architecture.jpg"/>
+<meta property="og:url" content="https://realtongli.github.io/HotPatchCaps-A-Capsule-Network-With-Runtime-Hot-Patching-for-Zero-Day-API-Attack-Detections/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="description" content="HotPatchCaps: an expert-in-the-loop capsule network framework for zero-day API attack detection with runtime hot patching. IEEE Transactions on Network and Service Management, 2026."/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;font-size:16px;color:#333;line-height:1.7;background:#fff}
+a{color:#1a73e8;text-decoration:none}
+a:hover{text-decoration:underline}
+nav{border-bottom:1px solid #e0e0e0;padding:0 2rem;display:flex;align-items:center;height:52px}
+nav a{color:#222;font-weight:bold}
+.container{max-width:860px;margin:0 auto;padding:2.5rem 2rem 4rem}
+header{text-align:center;margin-bottom:2rem}
+h1{font-size:1.9rem;line-height:1.3;color:#222;margin-bottom:1rem}
+.authors{font-size:1.05rem;margin-bottom:.3rem}
+.authors .me{font-weight:bold}
+.affil{color:#555;font-size:.95rem;margin-bottom:.6rem}
+.venue{font-style:italic;color:#555;margin-bottom:1.2rem}
+.buttons a{display:inline-block;margin:.25rem;padding:.4rem 1rem;border:1px solid #1a73e8;border-radius:20px;font-family:Arial,sans-serif;font-size:.9rem}
+.buttons a:hover{background:#1a73e8;color:#fff;text-decoration:none}
+h2{font-size:1.3rem;color:#222;margin:2rem 0 .75rem;border-bottom:2px solid #1a73e8;padding-bottom:.3rem;display:inline-block}
+p{margin-bottom:.9rem}
+figure{margin:1rem 0;text-align:center}
+figure img{max-width:100%;width:520px;border:1px solid #eee}
+figure img.wide{width:100%}
+figcaption{font-size:.88rem;color:#666;margin-top:.5rem;text-align:left}
+ul{padding-left:1.4rem}
+li{margin-bottom:.45rem}
+pre{background:#f6f8fa;border:1px solid #e1e4e8;border-radius:4px;padding:.8rem;font-size:.8rem;line-height:1.45;white-space:pre-wrap;word-break:break-word}
+.note{font-size:.95rem;color:#555}
+footer{text-align:center;padding:1.5rem;border-top:1px solid #eee;color:#999;font-size:.85rem;margin-top:3rem}
+@media(max-width:640px){nav{padding:0 1rem}.container{padding:1.5rem 1rem 3rem}h1{font-size:1.45rem}}
+</style>
+</head>
+<body>
+<nav><a href="https://realtongli.github.io/">&larr; Tong Li</a></nav>
+<div class="container">
+<header>
+  <h1>HotPatchCaps: A Capsule Network With Runtime Hot Patching for Zero-Day API Attack Detections</h1>
+  <div class="authors"><span class="me">Tong Li</span>, Shicheng Wei, Wencheng Yang, and Yan Li</div>
+  <div class="affil">School of Science, Engineering and Digital Technologies, University of Southern Queensland</div>
+  <div class="venue">IEEE Transactions on Network and Service Management, vol. 23, pp. 6191&ndash;6205, 2026</div>
+  <div class="buttons">
+    <a href="https://doi.org/10.1109/TNSM.2026.3713465" target="_blank">Paper (IEEE Xplore)</a>
+    <a href="#bibtex">BibTeX</a>
+  </div>
+</header>
+
+<section>
+  <h2>Overview</h2>
+  <figure>
+    <a href="architecture.jpg" target="_blank"><img class="wide" src="architecture.jpg" alt="HotPatchCaps architecture: request inspection, feature-aware capsule inference, expert-in-the-loop runtime hot patching, and detection with evidence"></a>
+    <figcaption>HotPatchCaps at a glance: (1) request-side inspection at the API gateway; (2) feature-aware capsule inference combining TF&ndash;IDF token evidence with internalized security cues through slot-controlled dynamic routing; (3) expert-in-the-loop runtime hot patching, where analysts inject scoped, auditable patch priors into reserved slots while trained weights stay frozen; (4) confidence-gated detection (Benign / Known attack / Unknown) with token- and field-level evidence. Click to enlarge.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>Abstract</h2>
+  <p>Modern services are awash in Application Programming Interfaces (APIs), yet most security pipelines end at pre-deployment testing using fuzzers and scanners. This leaves a run-time gap where payload obfuscation and other evolving request-visible misuse patterns outpace static rules and slow retraining cycles. We present HotPatchCaps, an expert-in-the-loop runtime framework that closes this gap by hot patching expert knowledge into a capsule architecture without retraining. HotPatchCaps fuses Term Frequency&ndash;Inverse Document Frequency (TF&ndash;IDF) statistics on request tokens with security cues such as parameter names, encodings, and payload substrings, and employs slot-controlled routing to amplify semantically relevant evidence into interpretable capsule activations. New rules arrive as lightweight runtime patches that can be injected on the fly, aligning with operational practice while preserving the generalization of learned models. We evaluated the CSIC 2010 dataset and the ATRDF 2023 dataset in both in-distribution and zero-day settings against classical machine learning (ML) and deep baselines. Experimental results demonstrate that HotPatchCaps consistently improves accuracy and recall at competitive precision and remains robust under label noise and schema drift. By turning expert knowledge into patchable capsule priors, HotPatchCaps provides a practical path from testing to on-call defence for API-centric systems.</p>
+</section>
+
+
+
+<section>
+  <h2>Highlights</h2>
+  <ul>
+    <li><strong>Expert-in-the-loop capsule framework</strong> that combines TF&ndash;IDF lexical evidence with security-oriented semantic cues, keeping a traceable path from request fields to attack decisions.</li>
+    <li><strong>Runtime hot patching</strong>: analysts inject lightweight, scope-limited patches at inference time without retraining or modifying model weights, covering the exposure window before a fully retrained model is available.</li>
+    <li><strong>Zero-day evaluation</strong> under leave-one-out unseen-class protocols, cross-dataset transfer between CSIC 2010 and ATRDF 2023, and runtime case studies on emerging attack patterns.</li>
+    <li><strong>Comprehensive comparison</strong> with classical ML, capsule-based and transformer-based baselines, showing strong detection with competitive precision, high recall, a compact footprint, and robustness to noisy labels and schema drift.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Code Availability</h2>
+  <p class="note">The implementation is available from the corresponding author upon reasonable request for research purposes.</p>
+</section>
+
+<section id="bibtex">
+  <h2>Citation</h2>
+<pre>@article{li2026hotpatchcaps,
+  author  = {Li, Tong and Wei, Shicheng and Yang, Wencheng and Li, Yan},
+  title   = {{HotPatchCaps}: A Capsule Network With Runtime Hot Patching for Zero-Day {API} Attack Detections},
+  journal = {IEEE Transactions on Network and Service Management},
+  volume  = {23},
+  pages   = {6191--6205},
+  year    = {2026},
+  doi     = {10.1109/TNSM.2026.3713465}
+}</pre>
+</section>
+</div>
+<footer><p>Abstract &copy; 2026 IEEE, reproduced from the published article for personal, non-commercial use.</p></footer>
+</body>
+</html>
